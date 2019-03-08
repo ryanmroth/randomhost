@@ -1,0 +1,14 @@
+!/usr/bin/env bash
+# Description: Generate and set a random hostname on Linux
+# Requires: sed, awk
+# Usage: set-random-hostname
+
+__set_random_hostname() {
+  local new_hostname=$(head -n1 < <(fold -w8 < <(tr -cd 'a-z0-9' < /dev/urandom)))
+  # set new hostname
+  hostnamectl set-hostname "$new_hostname"
+  # set new hostname in /etc/hosts
+  sed -i "2 s/^.*$/127.0.1.1       $new_hostname/g" /etc/hosts
+}
+
+__set_random_hostname

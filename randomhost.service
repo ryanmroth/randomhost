@@ -1,0 +1,11 @@
+[Unit]
+Description=Start Linux with a different hostname each boot
+Wants=network-pre.target
+Before=network-pre.target
+
+[Service]
+ExecStart=/usr/bin/randomhost
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target
