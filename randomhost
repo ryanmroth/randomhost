@@ -1,4 +1,4 @@
-!/usr/bin/env bash
+#!/usr/bin/env bash
 # Description: Generate and set a random hostname on Linux
 # Requires: sed, awk
 # Usage: set-random-hostname
