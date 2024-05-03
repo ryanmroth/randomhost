@@ -1,5 +1,5 @@
 [Unit]
-Description=Start Linux with a different hostname each boot
+Description=Create and assign a random hostname to a Linux system every time it boots up
 Wants=network-pre.target
 Before=network-pre.target
 
