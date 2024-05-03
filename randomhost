@@ -6,15 +6,15 @@
 __set_random_hostname() {
 
   # set a prefix if you'd like (thx @czerniachowicz)
-  local prefix="server_"
+  local prefix="server"
 
   # trim unusable characters if prefixed
   if [ -n "$prefix" ]; then
-    prefix="$(echo $prefix | tr -d '\011\012\013\014\015\040')"
+    prefix="${prefix// /}"
   fi
 
   # add random section
-  local new_hostname="${prefix}$(head -n1 < <(fold -w6 < <(tr -cd 'a-z0-9' < /dev/urandom)))"
+  local new_hostname="${prefix}-$(head -n1 < <(fold -w6 < <(tr -cd 'a-z0-9' < /dev/urandom)))"
 
   # if new hostname is too long, trim to max
   if [[ ${#new_hostname} -gt 64 ]]; then
@@ -28,4 +28,3 @@ __set_random_hostname() {
 }
 
 __set_random_hostname
-
