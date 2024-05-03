@@ -6,39 +6,44 @@ Create and assign a random hostname to a Linux system every time it boots up.
 
 ## Installation
 
-**Note:** *The commands must be executed with root privileges, either by running them as the root user or by prefixing them with sudo.*
+The following commands must be executed with root privileges, either by running them as the root user or by prefixing them with sudo.
 
   1. Clone the repository and navigate to its directory.
   ```bash
-    git clone https://github.com/ryanmroth/randomhost.git && cd randomhost
+    git clone https://github.com/ryanmroth/randomhost.git 
+    cd randomhost
   ```
-
   2. Copy the "randomhost" file to the "/usr/bin/" directory or any other location that is included in your $PATH variable:
   ```bash
   sudo cp randomhost /usr/bin
   ```
+  >**Note**: *If copying "randomhost" to a location other than "/usr/bin", edit line 7 in "randomhost.service" accordingly*:
+  >```diff
+  >- ExecStart=/usr/bin/randomhost
+  >+ ExecStart=/your/directory/randomhost
+  >```
 
-  2. Set the executable permission for the copied "randomhost" file:
+  3. Set the executable permission for the copied "randomhost" file:
   ```bash
   sudo chmod +x /usr/bin/randomhost
   ```
 
-  3. Copy the "randomhost.service" file to the "/etc/systemd/system/" directory:
+  4. Copy the "randomhost.service" file to the "/etc/systemd/system/" directory:
   ```bash
   sudo cp randomhost.service /etc/systemd/system
   ```
 
-  4. Ensure the permissions of the "randomhost.service" file are 644:
+  5. Ensure the permissions of the "randomhost.service" file are 644:
   ```bash
   sudo chmod 644 /etc/systemd/system/randomhost.service
   ```
 
-  5. Refresh the systemd systemctl daemon by executing:
+  6. Refresh the systemd systemctl daemon by executing:
   ```bash
   sudo systemctl daemon-reload 
   ```
 
-  6. Enable the service by running:
+  7. Enable the service by running:
   ```bash
   sudo systemctl enable randomhost
   ```
