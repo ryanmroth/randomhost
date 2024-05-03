@@ -6,8 +6,6 @@ Create and assign a random hostname to a Linux system every time it boots up.
 
 ## Installation
 
-The following commands must be executed with root privileges, either by running them as the root user or by prefixing them with sudo.
-
   1. Clone the repository and navigate to its directory.
   ```bash
     git clone https://github.com/ryanmroth/randomhost.git 
