@@ -10,8 +10,7 @@ Create and assign a random hostname to a Linux system every time it boots up.
 
   1. Clone the repository and navigate to its directory.
   ```bash
-    git clone https://github.com/ryanmroth/randomhost.git 
-    cd randomhost
+    git clone https://github.com/ryanmroth/randomhost.git && cd randomhost
   ```
 
   2. Copy the "randomhost" file to the "/usr/bin/" directory or any other location that is included in your $PATH variable:
