@@ -21,7 +21,10 @@ __set_random_hostname() {
     new_hostname=${new_hostname:0:64}
   fi
 
-  echo "$new_hostname"
+   # set new hostname
+  hostnamectl set-hostname "$new_hostname"
+  sed -i "2 s/^.*$/127.0.1.1       $new_hostname/g" /etc/hosts
+
 }
 
 __set_random_hostname
