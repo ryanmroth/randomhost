@@ -12,7 +12,7 @@ __set_random_hostname() {
 
   # generate new hostname
   if [ -n "$prefix" ]; then
-   local new_hostname="$(echo ${prefix} | sed -e 's/[^[:alnum:]]//g')-$(head -n1 < <(fold -w${random_size} < <(tr -cd 'a-z0-9' < /dev/urandom)))"
+    local new_hostname="$(echo ${prefix} | sed -e 's/[^[:alnum:]]//g')-$(head -n1 < <(fold -w${random_size} < <(tr -cd 'a-z0-9' < /dev/urandom)))"
   else
     local new_hostname="$(head -n1 < <(fold -w${random_size} < <(tr -cd 'a-z0-9' < /dev/urandom)))"
   fi
