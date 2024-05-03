@@ -8,7 +8,7 @@ __set_random_hostname() {
   # set a prefix if you'd like (thx @czerniachowicz)
   local prefix="server"
 
-  # trim unusable characters if prefixed
+  # trim spaces if prefixed
   if [ -n "$prefix" ]; then
     prefix="${prefix// /}"
   fi
